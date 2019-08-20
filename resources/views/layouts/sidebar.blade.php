@@ -83,7 +83,7 @@
         <!-- Navigation -->
         <ul class="navbar-nav">
             <li class="nav-item  class=" active" ">
-            <a class=" nav-link active " href=" ./index.html"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
+            <a class=" nav-link active " href="{{ route('home') }}"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
             </li>
             <li class="nav-item">
@@ -92,13 +92,18 @@
             </a>
             </li>
             <li class="nav-item">
-            <a class="nav-link " href="./examples/tables.html">
+            <a class="nav-link " href="{{ route('barang_masuk.index') }}">
                 <i class="fas fa-sign-in-alt text-info"></i> Barang Masuk
             </a>
             </li>
             <li class="nav-item">
-            <a class="nav-link " href="./examples/tables.html">
+            <a class="nav-link " href="{{ route('barang_keluar.index') }}">
                 <i class="fas fa-sign-out-alt text-danger"></i> Barang Keluar
+            </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link " href="{{ route('report') }}">
+                <i class="fas fa-file-archive text-primary"></i> Report
             </a>
             </li>
         </ul>
@@ -109,8 +114,12 @@
         <!-- Navigation -->
         <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
-            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+            <a class="nav-link" href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
                 <i class="fa fa-door-open"></i> Logout
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
             </a>
             </li>
         </ul>
